@@ -1,0 +1,2 @@
+http://localhost:8000/predict?ID_MUNICIP=12345&FEBRE=1&MIALGIA=1&CEFALEIA=0&EXANTEMA=1&VOMITO=1
+http://localhost:8000/predict?features=120020&features=1&features=1&features=1&features=1
