@@ -1,4 +1,4 @@
-[README_dengue.md](https://github.com/user-attachments/files/21708163/README_dengue.md)
+
 # Projeto de Análise e Predição de Dengue
 
 Este repositório contém o código, dados e instruções para executar uma análise exploratória e modelagem preditiva sobre casos de dengue, usando Python, Jupyter Notebook e bibliotecas de Machine Learning.
