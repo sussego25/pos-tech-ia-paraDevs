@@ -82,7 +82,9 @@ docker-compose up --build
 ```bash
 docker-compose up -d --build
 ```
-
+4. Para rodar a API:
+```bash
+Gerar o arquivo model.pkl e colocar na raiz do projeto
 ---
 
 ## 🌐 Acessando a API
