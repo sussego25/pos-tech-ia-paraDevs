@@ -5,5 +5,6 @@ class DengueFeatures(BaseModel):
     febre:int
     mialgia:int
     cefaleia:int
-    # exantema:int
+    nausea:int
+    dor_costas:int
     vomito:int
