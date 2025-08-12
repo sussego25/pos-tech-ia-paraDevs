@@ -1,4 +1,4 @@
-# 📦 FastAPI ML API com Docker
+# 📦 FastAPI ML API com Docker (Python 3.12)
 
 Este projeto contém uma API em **FastAPI** preparada para rodar em contêiner Docker com **Python 3.12**.
 
@@ -21,40 +21,64 @@ Este projeto contém uma API em **FastAPI** preparada para rodar em contêiner D
 └── README.md
 ```
 
-- **Dockerfile** → Define a imagem com Python 3.12 e instala dependências
-- **docker-compose.yml** → Configuração para rodar a API com Docker
-- **requirements.txt** → Lista de bibliotecas necessárias (`fastapi`, `uvicorn`, etc.)
-- **main.py** → Arquivo principal da aplicação FastAPI
-
 ---
 
-## ⚙️ Configuração
+## 🛠️ Dockerfile (Python 3.12)
 
-### 1️⃣ Pré-requisitos
-Certifique-se de ter instalado:
-- [Docker](https://docs.docker.com/get-docker/)
-- [Docker Compose](https://docs.docker.com/compose/install/)
+```dockerfile
+FROM python:3.12-slim
 
----
+WORKDIR /app
 
-### 2️⃣ Criar o arquivo `requirements.txt`
-Exemplo de conteúdo:
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+```
+
+> ⚠️ **Importante:** Inclua `uvicorn` e `fastapi` no seu arquivo `requirements.txt` para que a API funcione.
+
+Exemplo de `requirements.txt`:
 ```
 fastapi
 uvicorn
 ```
-Adicione também outras dependências que seu projeto utilizar.
 
 ---
 
-### 3️⃣ Rodar o projeto
+## 🐳 docker-compose.yml
 
-#### No Windows, Linux ou Mac:
+```yaml
+version: "3.9"
+services:
+  fastapi-ml:
+    build: .
+    container_name: ml-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    restart: unless-stopped
+```
+
+---
+
+## ⚙️ Como Rodar
+
+### Pré-requisitos
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+
+### Passos
+1. Abra o terminal e navegue até a pasta do projeto
+2. Execute:
 ```bash
 docker-compose up --build
 ```
-
-Para rodar em **segundo plano**:
+3. Para rodar em segundo plano:
 ```bash
 docker-compose up -d --build
 ```
@@ -62,38 +86,30 @@ docker-compose up -d --build
 ---
 
 ## 🌐 Acessando a API
-Depois de subir o container, a API estará disponível em:
+Após iniciar, a API estará disponível em:
 ```
 http://localhost:8000
 ```
 
 ---
 
-## 📄 Documentação Automática (Swagger)
-Acesse a documentação interativa no navegador:
-```
-http://localhost:8000/docs
-```
-
-Ou no formato **ReDoc**:
-```
-http://localhost:8000/redoc
-```
+## 📄 Documentação Swagger
+- **Swagger UI:** [http://localhost:8000/docs](http://localhost:8000/docs)
+- **ReDoc:** [http://localhost:8000/redoc](http://localhost:8000/redoc)
 
 ---
 
-## 🛠 Parar o container
-Para parar a API:
+## 🛑 Parar o Container
 ```bash
 docker-compose down
 ```
 
 ---
 
-## 🧩 Possíveis melhorias
+## 🧩 Possíveis Melhorias
 - Adicionar variáveis de ambiente (`.env`)
 - Configurar rede Docker customizada
-- Criar volume para persistir dados
+- Criar volume para persistência de dados
 - Adicionar testes automatizados
 
 ---
