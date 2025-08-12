@@ -110,7 +110,7 @@ Este projeto é de uso acadêmico e livre para estudos. A base de dados é públ
 
 ---
 
-**Link do vídeo youtube: ** https://www.youtube.com/watch?v=vioUfTKtetk
+**Link do vídeo youtube:** https://www.youtube.com/watch?v=vioUfTKtetk
 
 ---
 
