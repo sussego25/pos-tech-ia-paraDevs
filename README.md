@@ -110,5 +110,9 @@ Este projeto é de uso acadêmico e livre para estudos. A base de dados é públ
 
 ---
 
-✍️ **Autor:** Caio Moreira e lucas Farailde   
+**Link do vídeo youtube: ** https://www.youtube.com/watch?v=vioUfTKtetk
+
+---
+
+✍️ **Autor:** Caio Moreira e Lucas Farailde   
 📅 **Última atualização:** 2025
